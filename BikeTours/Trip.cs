@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using NUnit.Framework;
 
 namespace BikeTours
 {
@@ -49,6 +50,16 @@ namespace BikeTours
     public interface Preparer
     {
         void PrepareTrip(dynamic trip);
+    }
+
+    [TestFixture]
+    public class MechanicTests
+    {
+        [Test]
+        public void This_is_going_to_be_a_test()
+        {
+
+        }
     }
 
     public class Mechanic : Preparer
