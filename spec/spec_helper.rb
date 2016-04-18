@@ -1,5 +1,3 @@
-require_relative '../library'
-require_relative '../book'
 require_relative '../trip'
 require_relative '../mechanic'
 require 'yaml'
