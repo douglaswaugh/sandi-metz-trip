@@ -2,7 +2,9 @@ require 'spec_helper'
 
 describe Trip do
 	before :each do
-		@trip = Trip.new
+		brakes = Brakes.new(100);
+		velocity = MilesPerHour.new(0);
+		@trip = Trip.new(Bicycle.new(brakes,velocity))
 	end
 
 	describe "new" do
