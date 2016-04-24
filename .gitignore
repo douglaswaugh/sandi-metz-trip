@@ -4,4 +4,4 @@ packages/
 *.dll
 bin/
 obj/
-
+.vagrant/
