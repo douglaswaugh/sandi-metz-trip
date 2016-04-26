@@ -1,0 +1,2 @@
+class BrakesFailedError < RuntimeError
+end
