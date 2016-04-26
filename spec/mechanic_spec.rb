@@ -100,7 +100,6 @@ describe Mechanic do
 			velocity = MilesPerHour.new(1)
             bicycle = Bicycle.new(oldBrakes, velocity)
             trip = Trip.new([bicycle])
-
             mechanic = Mechanic.new
 
             mechanic.prepare_trip(trip)
