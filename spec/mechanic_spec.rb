@@ -106,5 +106,23 @@ describe Mechanic do
 
             expect {bicycle.apply_brakes}.to_not raise_error
 		end
+
+		it "should be able to test using a mock for bicycle" do
+			bicycle = double("bicycle")
+			expect(bicycle).to receive(:fix_brakes)
+			trip = Trip.new([bicycle])
+			mechanic = Mechanic.new()
+
+			mechanic.prepare_trip(trip)
+		end
+
+		it "should be able to test using a mock for bicycle a stub for trip" do
+			bicycle = double("bicycle")
+			expect(bicycle).to receive(:fix_brakes)
+			trip = double("trip", :bicycles => [bicycle])
+			mechanic = Mechanic.new()
+
+			mechanic.prepare_trip(trip)
+		end
 	end
 end
