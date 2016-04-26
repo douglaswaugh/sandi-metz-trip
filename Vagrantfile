@@ -64,8 +64,16 @@ config.vm.network "forwarded_port", guest: 3001, host: 3001
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  # config.vm.provision "shell", inline: <<-SHELL
-  #   sudo apt-get update
-  #   sudo apt-get install -y apache2
-  # SHELL
+  config.vm.provision "shell", inline: <<-SHELL
+    sudo apt-get update
+    sudo apt-get -y install git
+    sudo apt-get -y install curl
+  SHELL
+  config.vm.provision :shell, path: "install-rvm.sh", args: "stable", privileged: false
+  config.vm.provision :shell, path: "install-ruby.sh", args: "2.2.3", privileged: false
+  config.vm.provision "shell", privileged: false, inline: <<-SHELL
+    cd /vagrant
+    gem install bundler
+    bundle install
+  SHELL
 end
